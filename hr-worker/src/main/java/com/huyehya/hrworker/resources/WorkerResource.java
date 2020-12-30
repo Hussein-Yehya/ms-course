@@ -1,0 +1,33 @@
+package com.huyehya.hrworker.resources;
+
+import com.huyehya.hrworker.entities.Worker;
+import com.huyehya.hrworker.repositories.WorkerRespository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(value = "/workers")
+public class WorkerResource {
+
+    @Autowired
+    private WorkerRespository workerRespository;
+
+    @GetMapping
+    public ResponseEntity<?> findAll(){
+        final List<Worker> workers = workerRespository.findAll();
+        return ResponseEntity.ok(workers);
+    }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<?> findById(@PathVariable Long id){
+        Worker worker = workerRespository.findById(id).get();
+        return ResponseEntity.ok(worker);
+    }
+
+}
