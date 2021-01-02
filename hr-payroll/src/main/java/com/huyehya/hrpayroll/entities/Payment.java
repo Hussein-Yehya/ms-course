@@ -5,7 +5,7 @@ import lombok.*;
 @Builder
 @Getter
 @Setter
-public class Payments {
+public class Payment {
 
     private String name;
     private Double dailyIncome;
