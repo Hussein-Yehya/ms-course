@@ -25,13 +25,13 @@ public class WorkerResource {
     private WorkerRespository workerRespository;
 
     @GetMapping
-    public ResponseEntity<?> findAll(){
+    public ResponseEntity<?> findAll() {
         final List<Worker> workers = workerRespository.findAll();
         return ResponseEntity.ok(workers);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<?> findById(@PathVariable Long id){
+    public ResponseEntity<?> findById(@PathVariable Long id) {
 
         log.info("PORT =".concat(environment.getProperty("local.server.port")));
 
