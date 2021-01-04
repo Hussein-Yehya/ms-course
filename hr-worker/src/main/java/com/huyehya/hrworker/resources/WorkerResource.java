@@ -21,8 +21,8 @@ import java.util.List;
 @RequestMapping(value = "/workers")
 public class WorkerResource {
 
-    @Value("${test.config}")
-    private String testConfig;
+//    @Value("${test.config}")
+//    private String testConfig;
 
     @Autowired
     private Environment environment;
@@ -32,7 +32,7 @@ public class WorkerResource {
 
     @GetMapping(value = "/configs")
     public ResponseEntity<?> configs() {
-        log.info("Test Config: ".concat(testConfig));
+//        log.info("Test Config: ".concat(testConfig));
         return ResponseEntity.noContent().build();
     }
 
